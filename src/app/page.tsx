@@ -1,48 +1,74 @@
+import Navbar from '@/components/Navbar/Navbar';
+import SearchForm from '@/components/SearchForm/SearchForm';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
    return (
       <div className="w-screen h-screen bg-azul-Main flex flex-col items-center justify-center">
          <h1 className="font-black text-6xl">HUNTY</h1>
          <h2 className="text-xl text-yellow-500 me-2">Cazador de Negocios</h2>
-         <form action="" className="mt-5">
-            <div className="flex justify-center bg-white p-[1px] h-[4rem] gap-1 rounded-md">
-               <div className="flex">
-                  <Image
-                     src="/icons/search.svg"
-                     alt="Buscar"
-                     width={50}
-                     height={50}
-                     className="p-2"
-                  />
-                  <input
-                     type="text"
-                     placeholder="Supermercados"
-                     className="p-2 rounded-lg w-80 text-black"
-                  />
-               </div>
-               <div className="flex">
-                  <Image
-                     src="/icons/location.svg"
-                     alt="Ubicación"
-                     width={50}
-                     height={50}
-                     className="p-2"
-                  />
-                  <input
-                     type="text"
-                     placeholder="Montevideo"
-                     className="p-2 rounded-lg w-80 text-black"
-                  />
-               </div>
-               <button
-                  type="submit"
-                  className="bg-yellow-500 text-azul-Main text-sm font-bold p-2 px-8 hover:cursor-pointer hover:brightness-110"
-               >
-                  Buscar
-               </button>
-            </div>
-         </form>
+         <SearchForm />
+         <div className="flex justify-between gap-2 mt-6">
+            <Link
+               href="/about"
+               className="text-sm px-2 text-gray-500 bg-white rounded-full"
+            >
+               <Image
+                  src="/icons/restaurant.svg"
+                  alt="restaurantes"
+                  width={12}
+                  height={12}
+                  className="inline pb-1 me-1"
+               />
+               Restaurantes
+            </Link>
+            <Link
+               href="/contact"
+               className="text-sm px-2 text-gray-500 bg-white rounded-full"
+            >
+               <Image
+                  src="/icons/pharmacy.svg"
+                  alt="farmacias"
+                  width={12}
+                  height={12}
+                  className="inline pb-1 me-1"
+               />
+               Farmacias
+            </Link>
+            <Link
+               href="/contact"
+               className="text-sm px-2 text-gray-500 bg-white rounded-full"
+            >
+               <Image
+                  src="/icons/market.svg"
+                  alt="supermercados"
+                  width={12}
+                  height={12}
+                  className="inline pb-1 me-1"
+               />
+               Supermercados
+            </Link>
+            <Link
+               href="/contact"
+               className="text-sm px-2 text-gray-500 bg-white rounded-full"
+            >
+               <Image
+                  src="/icons/vet.svg"
+                  alt="Veterinarias"
+                  width={12}
+                  height={12}
+                  className="inline pb-1 me-1"
+               />
+               Veterinarias
+            </Link>
+            <Link
+               href="/contact"
+               className="text-sm px-2 text-white hover:underline"
+            >
+               + Categorias
+            </Link>
+         </div>
       </div>
    );
 }
