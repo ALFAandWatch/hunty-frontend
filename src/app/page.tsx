@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar/Navbar';
 import SearchForm from '@/components/SearchForm/SearchForm';
 import Image from 'next/image';
 import Link from 'next/link';
