@@ -10,15 +10,17 @@ const Navbar = () => {
 
    return (
       <>
-         <div className="absolute top-0 w-screen flex justify-between py-4 pe-5 bg-azul-Main">
+         <div className="w-screen flex justify-between py-4 pe-5 bg-azul-Main">
             {!isHome && (
-               <Image
-                  src="/logo.png"
-                  alt="Hunty Logo"
-                  width={100}
-                  height={100}
-                  className="object-contain ms-10"
-               />
+               <Link href="/" className="hover:cursor-pointer">
+                  <Image
+                     src="/logo.png"
+                     alt="Hunty Logo"
+                     width={100}
+                     height={100}
+                     className="object-contain ms-10"
+                  />
+               </Link>
             )}
             <div className="flex gap-4 ms-auto">
                <Link
