@@ -99,8 +99,8 @@ const SearchForm = () => {
    };
    return (
       <>
-         <form onSubmit={handleSubmit} className="mt-5">
-            <div className="flex justify-center bg-white p-[1px] h-[3.5rem] rounded-md">
+         <form onSubmit={handleSubmit}>
+            <div className="flex justify-center bg-white p-[1px] h-[3.5rem] rounded-md shadow-md">
                <div className="flex flex-col relative w-full">
                   <div className="flex group w-full focus-within:border-blue-500 border-2 rounded-l-md">
                      <Image

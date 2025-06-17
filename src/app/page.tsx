@@ -6,7 +6,9 @@ export default function Home() {
    return (
       <div className="w-screen h-[calc(100vh-72px)] bg-azul-Main flex flex-col items-center justify-center">
          <h1 className="font-black text-6xl">HUNTY</h1>
-         <h2 className="text-xl text-yellow-500 me-2">Cazador de Negocios</h2>
+         <h2 className="text-xl text-yellow-500 me-2 mb-5">
+            Cazador de Negocios
+         </h2>
          <SearchForm />
          <div className="flex justify-between gap-2 mt-6">
             <Link

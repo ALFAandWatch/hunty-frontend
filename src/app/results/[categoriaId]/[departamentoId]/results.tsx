@@ -1,10 +1,18 @@
-'use client';
-import { useParams } from 'next/navigation';
+import ActiveFilter from '@/components/ActiveFilter/ActiveFilter';
+import FilterSelector from '@/components/FilterSelector/FilterSelector';
+import MainBanner from '@/components/MainBanner/MainBanner';
+import { FilterProvider } from '@/context/FilterContext';
 
 const Results = () => {
-   const { categoriaId, departamentoId } = useParams();
-
-   return <h2 className="text-red-600 text-8xl">RESULTS!</h2>;
+   return (
+      <div className="bg-gray-100">
+         <MainBanner />
+         <FilterProvider>
+            <ActiveFilter />
+            <FilterSelector />
+         </FilterProvider>
+      </div>
+   );
 };
 
 export default Results;
