@@ -1,4 +1,5 @@
 import ActiveFilter from '@/components/ActiveFilter/ActiveFilter';
+import EmpresasList from '@/components/EmpresasList/EmpresasList';
 import FilterSelector from '@/components/FilterSelector/FilterSelector';
 import MainBanner from '@/components/MainBanner/MainBanner';
 import { FilterProvider } from '@/context/FilterContext';
@@ -10,6 +11,7 @@ const Results = () => {
          <FilterProvider>
             <ActiveFilter />
             <FilterSelector />
+            <EmpresasList />
          </FilterProvider>
       </div>
    );
