@@ -25,15 +25,15 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                      Premium
                   </h2>
                )}
-            </div>
-            <div className="flex justify-between mt-2 px-2">
                <Image
                   src="/empresaLogo.jpg"
                   alt="Logo"
-                  width={50}
-                  height={50}
-                  className="rounded-full -mt-10 z-10 aspect-square"
+                  width={60}
+                  height={60}
+                  className="rounded-full z-10 aspect-square absolute left-0 bottom-0 -mb-9 ms-3 border-2 border-azul-Main"
                ></Image>
+            </div>
+            <div className="flex justify-end gap-3 mt-2 px-2">
                <Link
                   href=""
                   className="bg-azul-Main text-white text-xs rounded-full p-1 px-2"
@@ -51,8 +51,8 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                   <Image
                      src="/icons/whatsapp.png"
                      alt="Whatsapp"
-                     width={20}
-                     height={20}
+                     width={25}
+                     height={25}
                      className="rounded-full"
                   />
                </Link>
@@ -65,9 +65,18 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                   />
                </button>
             </div>
-            <div className="flex flex-col w-full">
-               <h2 className="text-black">{nombre}</h2>
-               <h2 className="text-black">{direccion}</h2>
+            <div className="flex flex-col w-full p-3 pt-6">
+               <h2 className="text-black font-bold">{nombre}</h2>
+               <h2 className="text-gray-500 text-sm">
+                  <Image
+                     src="/icons/location_gray.svg"
+                     alt="Ubicacion"
+                     width={14}
+                     height={14}
+                     className="inline align-text-baseline mb-1 me-1"
+                  />
+                  {direccion}
+               </h2>
                <h3 className="text-black"></h3>
             </div>
          </div>
