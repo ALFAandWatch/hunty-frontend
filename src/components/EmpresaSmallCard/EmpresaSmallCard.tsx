@@ -7,11 +7,11 @@ interface Props {
 }
 
 const EmpresaSmallCard = ({ empresa }: Props) => {
-   const { nombre, direccion, esPremium } = empresa;
+   const { id, nombre, direccion, esPremium, sitioWeb } = empresa;
 
    return (
       <>
-         <div className="w-full rounded-xl overflow-hidden flex flex-col bg-white shadow-md">
+         <div className="w-full rounded-xl overflow-hidden flex flex-col bg-white shadow-md min-h-[18rem]">
             <div className="h-[10rem] w-full bg-[url('/empresa.jpg')] bg-cover relative">
                {esPremium && (
                   <h2 className="bg-white rounded-full text-azul-Main w-fit absolute top-2 left-2">
@@ -34,8 +34,10 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                ></Image>
             </div>
             <div className="flex justify-end gap-3 mt-2 px-2">
-               <Link
+               <a
                   href=""
+                  rel="noopener noreferrer"
+                  target="_blank"
                   className="bg-azul-Main text-white text-xs rounded-full p-1 px-2"
                >
                   <Image
@@ -46,8 +48,8 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                      className="inline invert me-1"
                   />
                   Llamar
-               </Link>
-               <Link href="">
+               </a>
+               <a href="#" rel="noopener noreferrer" target="_blank">
                   <Image
                      src="/icons/whatsapp.png"
                      alt="Whatsapp"
@@ -55,7 +57,7 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                      height={25}
                      className="rounded-full"
                   />
-               </Link>
+               </a>
                <button>
                   <Image
                      src="/icons/emptyHeart.svg"
@@ -66,7 +68,12 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                </button>
             </div>
             <div className="flex flex-col w-full p-3 pt-6">
-               <h2 className="text-black font-bold">{nombre}</h2>
+               <Link
+                  href={`/empresaData/${id}`}
+                  className="text-black font-bold text-sm"
+               >
+                  {nombre}
+               </Link>
                <h2 className="text-gray-500 text-sm">
                   <Image
                      src="/icons/location_gray.svg"
@@ -77,7 +84,14 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                   />
                   {direccion}
                </h2>
-               <h3 className="text-black"></h3>
+               <a
+                  href={sitioWeb}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 text-center text-sm hover:text-blue-600 hover:underline hover:cursor-pointer"
+               >
+                  {sitioWeb}
+               </a>
             </div>
          </div>
       </>

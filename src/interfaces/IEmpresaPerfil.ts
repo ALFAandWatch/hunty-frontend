@@ -10,6 +10,7 @@ export interface IEmpresaPerfil {
    abiertoAhora: boolean;
    puntuacion: number;
    formasDePago: string[];
+   sitioWeb: string;
    usuario?: {
       id: string;
       email: string;

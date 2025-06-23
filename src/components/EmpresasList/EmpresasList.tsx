@@ -51,7 +51,7 @@ const EmpresasList = () => {
 
    return (
       <>
-         <div className="w-[70%] grid grid-cols-4 mx-auto gap-4">
+         <div className="w-[75%] grid grid-cols-4 mx-auto gap-4 pb-20">
             {Empresas && Empresas.length > 0 ? (
                Empresas.map((empresa) => (
                   <EmpresaSmallCard key={empresa.id} empresa={empresa} />

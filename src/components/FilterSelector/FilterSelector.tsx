@@ -30,7 +30,7 @@ const FilterSelector = () => {
 
    return (
       <>
-         <div className="flex justify-between items-center w-[70%] mx-auto mt-12 mb-8 text-sm">
+         <div className="flex justify-between items-center w-[75%] mx-auto mt-12 mb-8 text-sm">
             <div className="flex gap-2 items-center">
                <span className="shadow-md p-2 px-3 bg-white text-black rounded-sm">
                   <Image
