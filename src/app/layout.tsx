@@ -1,18 +1,21 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-
+import { Open_Sans, Poppins } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 
-const geistSans = Geist({
-   variable: '--font-geist-sans',
+const openSans = Open_Sans({
    subsets: ['latin'],
+   weight: ['400', '700'],
+   variable: '--font-open-sans',
+   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-   variable: '--font-geist-mono',
+const poppins = Poppins({
    subsets: ['latin'],
+   weight: ['400', '700'],
+   variable: '--font-poppins',
+   display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -26,9 +29,9 @@ export default async function RootLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <html lang="en">
+      <html lang="en" className={`${poppins.variable} ${openSans.variable}`}>
          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none`}
+            className={`antialiased overscroll-none font-(family-name:--font-poppins)`}
          >
             <Navbar />
             <LayoutWrapper>{children}</LayoutWrapper>

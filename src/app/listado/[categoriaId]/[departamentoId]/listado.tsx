@@ -4,7 +4,7 @@ import FilterSelector from '@/components/FilterSelector/FilterSelector';
 import MainBanner from '@/components/MainBanner/MainBanner';
 import { FilterProvider } from '@/context/FilterContext';
 
-const Results = () => {
+const Listado = () => {
    return (
       <div className="bg-gray-100">
          <MainBanner />
@@ -17,4 +17,4 @@ const Results = () => {
    );
 };
 
-export default Results;
+export default Listado;

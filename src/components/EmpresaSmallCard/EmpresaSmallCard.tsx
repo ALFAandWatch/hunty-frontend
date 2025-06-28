@@ -69,7 +69,7 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
             </div>
             <div className="flex flex-col w-full p-3 pt-6">
                <Link
-                  href={`/empresaData/${id}`}
+                  href={`/perfil/${id}`}
                   className="text-black font-bold text-sm"
                >
                   {nombre}

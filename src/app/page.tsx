@@ -5,10 +5,15 @@ import Link from 'next/link';
 export default function Home() {
    return (
       <div className="w-screen h-[calc(100vh-72px)] bg-azul-Main flex flex-col items-center justify-center">
-         <h1 className="font-black text-6xl">HUNTY</h1>
-         <h2 className="text-xl text-yellow-500 me-2 mb-5">
-            Cazador de Negocios
-         </h2>
+         <h1>
+            <Image
+               src="/logo.png"
+               alt="HUNTY.UY"
+               width={258}
+               height={80}
+               className="mb-10"
+            />
+         </h1>
          <SearchForm />
          <div className="flex justify-between gap-2 mt-6">
             <Link
@@ -64,7 +69,7 @@ export default function Home() {
                Veterinarias
             </Link>
             <Link
-               href="/contact"
+               href="/categorias"
                className="text-sm px-2 text-white hover:underline"
             >
                + Categorias

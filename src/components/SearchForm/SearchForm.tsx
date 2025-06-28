@@ -95,12 +95,12 @@ const SearchForm = () => {
       const departamentoId = selectedDepartamento?.id;
 
       if (!categoriaId || !departamentoId) return;
-      router.push(`/results/${categoriaId}/${departamentoId}`);
+      router.push(`/listado/${categoriaId}/${departamentoId}`);
    };
    return (
       <>
          <form onSubmit={handleSubmit}>
-            <div className="flex justify-center bg-white p-[1px] h-[3.5rem] rounded-md shadow-md">
+            <div className="flex justify-center bg-white p-[1px] h-[3.5rem] rounded-md shadow-md overflow-hidden">
                <div className="flex flex-col relative w-full">
                   <div className="flex group w-full focus-within:border-blue-500 border-2 rounded-l-md">
                      <Image
@@ -231,7 +231,7 @@ const SearchForm = () => {
                </div>
                <button
                   type="submit"
-                  className="bg-yellow-500 text-azul-Main text-sm font-bold p-2 px-8 ms-1 hover:cursor-pointer hover:brightness-110"
+                  className="bg-yellow-500 text-azul-Main text-sm font-bold p-2 px-8 ms-1 hover:cursor-pointer hover:brightness-110 rounded-r-md"
                >
                   Buscar
                </button>
