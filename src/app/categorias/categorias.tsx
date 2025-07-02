@@ -1,8 +1,14 @@
+'use client';
 import ListaCategoriasHijas from '@/components/ListaCategoriasHijas/ListaCategoriasHijas';
 import ListaCategoriasPadre from '@/components/ListaCategoriasPadre/ListaCategoriasPadre';
 import SearchForm from '@/components/SearchForm/SearchForm';
+import easeScroll from '@/utils/easeScroll';
+import { useRef, useState } from 'react';
 
 const Categorias = () => {
+   const [categoriaActiva, setCategoriaActiva] = useState<string | null>(null);
+   const categoriaRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
    return (
       <>
          <div className="w-full bg-azul-Main flex justify-center items-center h-[10rem]">
@@ -14,12 +20,23 @@ const Categorias = () => {
             <div className="-mt-7 max-h-fit">
                <SearchForm />
             </div>
-            <div className="w-[77%] mx-auto mt-15 flex">
+            <div className="w-[77%] mx-auto mt-15 flex relative">
                <div>
-                  <ListaCategoriasPadre />
+                  <ListaCategoriasPadre
+                     categoriaActiva={categoriaActiva}
+                     onCategoriaClick={(nombre) => {
+                        const el = categoriaRefs.current[nombre];
+                        if (el) {
+                           easeScroll(el);
+                        }
+                     }}
+                  />
                </div>
                <div>
-                  <ListaCategoriasHijas />
+                  <ListaCategoriasHijas
+                     setCategoriaActiva={setCategoriaActiva}
+                     categoriaRefs={categoriaRefs}
+                  />
                </div>
             </div>
          </div>

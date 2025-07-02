@@ -5,8 +5,15 @@ import axiosInstance from '@/services/axiosInstance';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const ListaCategoriasPadre = () => {
+type ListaCategoriasPadreProps = {
+   categoriaActiva: string | null;
+   onCategoriaClick: (categoriaNombre: string) => void;
+};
+
+const ListaCategoriasPadre = (Props: ListaCategoriasPadreProps) => {
    const [categorias, setCategorias] = useState<ICategory[] | null>(null);
+   const { categoriaActiva, onCategoriaClick } = Props;
+   console.log('Categoria Activa', categoriaActiva);
 
    useEffect(() => {
       axiosInstance
@@ -22,13 +29,18 @@ const ListaCategoriasPadre = () => {
 
    return (
       <>
-         <div className="rounded-lg shadow-md bg-white w-full p-4">
+         <div className="rounded-lg shadow-md bg-white w-65 p-4 sticky top-3 mb-5">
             <ul>
                {categorias &&
                   categorias.map((categoria) => (
                      <li
                         key={categoria.id}
-                        className="text-sm font-(family-name:--font-open-sans) text-gray-600 mb-2"
+                        onClick={() => onCategoriaClick(categoria.name)}
+                        className={`text-sm font-(family-name:--font-open-sans) mb-1 hover:cursor-pointer ${
+                           categoriaActiva === categoria.name
+                              ? 'text-blue-500 font-bold'
+                              : 'text-gray-600'
+                        }`}
                      >
                         {categoria.iconUrl && (
                            <Image
