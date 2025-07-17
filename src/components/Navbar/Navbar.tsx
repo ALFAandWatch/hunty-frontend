@@ -32,7 +32,7 @@ const Navbar = () => {
                      Anunciate como empresa
                   </Link>
                )}
-               <Link href="/about" className="p-2 hover:underline">
+               <Link href="/registro" className="p-2 hover:underline">
                   Regístrate
                </Link>
                <Link href="/about" className="p-2 hover:underline">

@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Open_Sans, Poppins } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar/Navbar';
-import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 
 const openSans = Open_Sans({
    subsets: ['latin'],
@@ -33,8 +31,7 @@ export default async function RootLayout({
          <body
             className={`antialiased overscroll-none font-(family-name:--font-poppins)`}
          >
-            <Navbar />
-            <LayoutWrapper>{children}</LayoutWrapper>
+            {children}
          </body>
       </html>
    );

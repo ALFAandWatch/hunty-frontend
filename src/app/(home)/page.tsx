@@ -1,10 +1,14 @@
+import Navbar from '@/components/Navbar/Navbar';
 import SearchForm from '@/components/SearchForm/SearchForm';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
    return (
-      <div className="w-screen h-[calc(100vh-72px)] bg-azul-Main flex flex-col items-center justify-center">
+      <div className="w-screen h-screen bg-azul-Main flex flex-col items-center justify-center">
+         <div className="absolute top-0">
+            <Navbar />
+         </div>
          <h1>
             <Image
                src="/logo.png"
