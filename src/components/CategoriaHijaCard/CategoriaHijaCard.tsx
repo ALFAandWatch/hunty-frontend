@@ -8,7 +8,7 @@ const CategoriaHijaCard = (Props: CategoriaHijaCardProps) => {
    const { name } = Props;
    return (
       <>
-         <div className="rounded-lg flex flex-col w-full overflow-hidden shadow-lg border border-white hover:border hover:border-azul-Main hover:cursor-pointer">
+         <div className="rounded-lg flex flex-col w-full overflow-hidden shadow-lg border border-white hover:border hover:border-violeta hover:cursor-pointer">
             <div className="relative h-40">
                <Image
                   src="/category/hipermercados.png"

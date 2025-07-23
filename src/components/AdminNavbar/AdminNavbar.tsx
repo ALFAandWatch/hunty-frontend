@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const Navbar = () => {
+const AdminNavbar = () => {
    const pathname = usePathname();
    const isHome = pathname === '/';
    const isEmpresa = pathname === '/empresa';
@@ -54,4 +54,4 @@ const Navbar = () => {
    );
 };
 
-export default Navbar;
+export default AdminNavbar;

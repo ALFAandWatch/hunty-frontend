@@ -20,7 +20,7 @@ const CuentaPersonal = () => {
 
    return (
       <>
-         <div className="w-screen bg-azul-Main flex flex-col gap-3 items-center pt-5 font-(family-name:--font-open-sans)">
+         <div className="w-screen bg-violeta flex flex-col gap-3 items-center pt-5 font-(family-name:--font-open-sans)">
             <Link href="/" className="">
                <div className="h-13 w-45 relative mt-10">
                   <Image src="/logo.png" alt="Hunty.uy" fill sizes="100vw" />
@@ -36,7 +36,7 @@ const CuentaPersonal = () => {
                      className="mb-4"
                   />
                </div>
-               <h2 className="text-azul-Main text-xl font-semibold">
+               <h2 className="text-violeta text-xl font-semibold">
                   Completa los datos
                </h2>
                <p className="text-gray-500 font-semibold text-md font-(family-name:--font-open-sans)">
@@ -177,14 +177,14 @@ const CuentaPersonal = () => {
                                     He leído y acepto los
                                     <Link
                                        href="/terminos"
-                                       className="text-azul-Main"
+                                       className="text-violeta"
                                     >
                                        Términos y Condiciones
                                     </Link>
                                     y las
                                     <Link
                                        href="/privacidad"
-                                       className="text-azul-Main"
+                                       className="text-violeta"
                                     >
                                        Políticas de Privacidad
                                     </Link>
@@ -192,7 +192,7 @@ const CuentaPersonal = () => {
                               </div>
                               <button
                                  type="submit"
-                                 className="bg-azul-Main text-white font-bold rounded-full p-2 font-(family-name:--font-open-sans) text-sm hover:cursor-pointer hover:brightness-115"
+                                 className="bg-violeta text-white font-bold rounded-full p-2 font-(family-name:--font-open-sans) text-sm hover:cursor-pointer hover:brightness-115"
                               >
                                  Crear Cuenta Personal
                               </button>

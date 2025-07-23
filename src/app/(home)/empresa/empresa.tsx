@@ -4,11 +4,11 @@ import Image from 'next/image';
 const Empresa = () => {
    return (
       <>
-         <div className="w-screen mx-auto bg-linear-to-b from-azul-Main from-10% via-violet-400 via-30% to-white to-70%">
+         <div className="w-screen mx-auto bg-linear-to-b from-violeta from-10% via-violet-400 via-30% to-white to-70%">
             {/********************* Formulario e imagenes ****************/}
             <div className="w-[77%] mx-auto flex gap-10 pt-10">
                <div className="flex flex-col gap-7">
-                  <h2 className="text-amarillo-Main font-(family-name:--font-open-sans) text-3xl">
+                  <h2 className="text-amarillo font-(family-name:--font-open-sans) text-3xl">
                      Tus potenciales clientes ya están en internet, sólo faltás
                      vos.
                   </h2>
@@ -26,7 +26,7 @@ const Empresa = () => {
                            className="mt-auto"
                         />
 
-                        <button className="bg-amarillo-Main p-5 text-azul-Main rounded-lg font-bold text-sm max-h-[100px] hover:brightness-110 hover:cursor-pointer">
+                        <button className="bg-amarillo p-5 text-violeta rounded-lg font-bold text-sm max-h-[100px] hover:brightness-110 hover:cursor-pointer">
                            <Image
                               src="/icons/whatsappLogo.png"
                               alt="Whatsapp"
@@ -60,12 +60,12 @@ const Empresa = () => {
             </div>
             {/********************* Conoce los beneficios ****************/}
             <div className="w-[75%] mx-auto flex flex-col items-center mt-[10rem]">
-               <h2 className="text-azul-Main font-bold text-3xl text-center">
+               <h2 className="text-violeta font-bold text-3xl text-center">
                   Conocé los beneficios de publicar en Hunty.uy
                </h2>
                <div className="flex justify-between gap-5 mt-15">
-                  <div className="flex-1 rounded-lg bg-amarillo-Main p-5">
-                     <h2 className="text-azul-Main text-md font-bold">
+                  <div className="flex-1 rounded-lg bg-amarillo p-5">
+                     <h2 className="text-violeta text-md font-bold">
                         Público objetivo
                      </h2>
                      <p className="text-black text-sm">
@@ -75,8 +75,8 @@ const Empresa = () => {
                         producto.
                      </p>
                   </div>
-                  <div className="flex-1 rounded-lg bg-amarillo-Main p-5">
-                     <h2 className="text-azul-Main text-md font-bold">
+                  <div className="flex-1 rounded-lg bg-amarillo p-5">
+                     <h2 className="text-violeta text-md font-bold">
                         Precios accesibles
                      </h2>
                      <p className="text-black text-sm">
@@ -85,8 +85,8 @@ const Empresa = () => {
                         medianas o grandes empresas.
                      </p>
                   </div>
-                  <div className="flex-1 rounded-lg bg-amarillo-Main p-5">
-                     <h2 className="text-azul-Main text-md font-bold">
+                  <div className="flex-1 rounded-lg bg-amarillo p-5">
+                     <h2 className="text-violeta text-md font-bold">
                         Reportes y estadísticas
                      </h2>
                      <p className="text-black text-sm">
@@ -95,8 +95,8 @@ const Empresa = () => {
                         la inversión en base a resultados.
                      </p>
                   </div>
-                  <div className="flex-1 rounded-lg bg-amarillo-Main p-5">
-                     <h2 className="text-azul-Main text-md font-bold">
+                  <div className="flex-1 rounded-lg bg-amarillo p-5">
+                     <h2 className="text-violeta text-md font-bold">
                         Adaptabilidad
                      </h2>
                      <p className="text-black text-sm">
@@ -107,22 +107,22 @@ const Empresa = () => {
                      </p>
                   </div>
                </div>
-               <button className="bg-azul-Main rounded-full text-white w-75 p-2 mt-12">
+               <button className="bg-violeta rounded-full text-white w-75 p-2 mt-12">
                   QUIERO ANUNCIAR
                </button>
             </div>
             {/********************* Pasos ****************/}
             <div className="w-[75%] mx-auto mt-25 pb-40">
-               <h2 className="text-3xl font-bold text-azul-Main text-center">
+               <h2 className="text-3xl font-bold text-violeta text-center">
                   Empezá a publicar con nosotros en 3 simples pasos
                </h2>
                <div className="flex flex-col mt-10 ml-[15rem]">
                   <div className="flex mb-8">
-                     <div className="w-13 aspect-square text-2xl bg-amarillo-Main text-azul-Main flex justify-center items-center rounded-full font-semibold me-5 -mt-2 mb-2">
+                     <div className="w-13 aspect-square text-2xl bg-amarillo text-violeta flex justify-center items-center rounded-full font-semibold me-5 -mt-2 mb-2">
                         1
                      </div>
                      <div>
-                        <h2 className="text-azul-Main font-bold text-xl">
+                        <h2 className="text-violeta font-bold text-xl">
                            Envianos tus datos
                         </h2>
                         <p className="text-black text-sm">
@@ -132,11 +132,11 @@ const Empresa = () => {
                      </div>
                   </div>
                   <div className="flex mb-8">
-                     <div className="w-13 aspect-square text-2xl bg-amarillo-Main text-azul-Main flex justify-center items-center rounded-full font-semibold me-5 -mt-2 mb-2">
+                     <div className="w-13 aspect-square text-2xl bg-amarillo text-violeta flex justify-center items-center rounded-full font-semibold me-5 -mt-2 mb-2">
                         2
                      </div>
                      <div>
-                        <h2 className="text-azul-Main font-bold text-xl">
+                        <h2 className="text-violeta font-bold text-xl">
                            Hablá con un asesor
                         </h2>
                         <p className="text-black text-sm">
@@ -146,11 +146,11 @@ const Empresa = () => {
                      </div>
                   </div>
                   <div className="flex mb-8">
-                     <div className="w-13 aspect-square text-2xl bg-amarillo-Main text-azul-Main flex justify-center items-center rounded-full font-semibold me-5 -mt-2 mb-2">
+                     <div className="w-13 aspect-square text-2xl bg-amarillo text-violeta flex justify-center items-center rounded-full font-semibold me-5 -mt-2 mb-2">
                         3
                      </div>
                      <div>
-                        <h2 className="text-azul-Main font-bold text-xl">
+                        <h2 className="text-violeta font-bold text-xl">
                            Tené tu anuncio
                         </h2>
                         <p className="text-black text-sm">

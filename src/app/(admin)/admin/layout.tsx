@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Open_Sans, Poppins } from 'next/font/google';
-import '../globals.css';
+import '../../globals.css';
+import AdminNavbar from '@/components/AdminNavbar/AdminNavbar';
+import AdminASide from '@/components/AdminAside/AdminAside';
 
 const openSans = Open_Sans({
    subsets: ['latin'],
@@ -31,7 +33,13 @@ export default async function RootLayout({
          <body
             className={`antialiased overscroll-none font-(family-name:--font-poppins)`}
          >
-            {children}
+            <AdminNavbar />
+            <div className="flex w-screen">
+               <aside className="bg-white w-60 shadow-md/50 z-1">
+                  <AdminASide />
+               </aside>
+               <main className="bg-gray-100 w-full p-4 px-8">{children}</main>
+            </div>
          </body>
       </html>
    );

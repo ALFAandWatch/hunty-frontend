@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@tailwind utilities;
+
+:root {
+   --background: #ffffff;
+   --foreground: #171717;
+}
+
+@theme {
+   --color-violeta: #622af4;
+   --color-golden: #bba06b;
+   --color-rojo: #df654b;
+   --color-verde: #055e55;
+   --color-amarillo: #f6c200;
+   --color-celeste: #2babf5;
+   --color-morado: #b82bf5;
+   --color-submit: #37a073;
+   --color-cancel: #c81414;
+}
+
+@media (prefers-color-scheme: dark) {
+   :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+   }
+}
+
+body {
+   background: var(--background);
+   color: var(--foreground);
+}
+
+/* FORM */
+.commonField {
+   padding: 12px;
+   background-color: white;
+   font-size: 14px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   border-radius: 6px;
+}
+
+/* GENERAL */
+.contentWrapper {
+   width: 90%;
+   margin-top: 2.5rem;
+}
+
+/* Para Chrome, Safari, Edge, Opera */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+/* Para Firefox */
+input[type='number'] {
+   -moz-appearance: textfield;
+   appearance: none;
+}

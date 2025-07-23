@@ -231,7 +231,7 @@ const SearchForm = () => {
                </div>
                <button
                   type="submit"
-                  className="bg-yellow-500 text-azul-Main text-sm font-bold p-2 px-8 ms-1 hover:cursor-pointer hover:brightness-110 rounded-r-md"
+                  className="bg-yellow-500 text-violeta text-sm font-bold p-2 px-8 ms-1 hover:cursor-pointer hover:brightness-110 rounded-r-md"
                >
                   Buscar
                </button>

@@ -20,7 +20,7 @@ const EmpresaForm = () => {
 
    return (
       <>
-         <div className="w-110 h-fit rounded-lg bg-[#F3F3F3] pt-5 px-3 pb-3 border-4 border-azul-Main">
+         <div className="w-110 h-fit rounded-lg bg-[#F3F3F3] pt-5 px-3 pb-3 border-4 border-violeta">
             <h2 className="text-black text-center font-bold text-md">
                Dejanos tus datos
             </h2>
@@ -96,7 +96,7 @@ const EmpresaForm = () => {
                               className={`px-4 py-2 rounded-full border text-xs transition-colors
                                  ${
                                     values.tipoDeAyuda === opcion
-                                       ? 'bg-azul-Main text-white border-azul-Main'
+                                       ? 'bg-violeta text-white border-violeta'
                                        : 'bg-white text-gray-700 border-gray-300'
                                  }`}
                            >
@@ -123,12 +123,12 @@ const EmpresaForm = () => {
                         <Field
                            type="checkbox"
                            name="aceptaTerminos"
-                           className="me-2 accent-azul-Main"
+                           className="me-2 accent-violeta"
                         />
                         He leído y acepto los
                         <Link
                            href="/terminos"
-                           className="text-azul-Main hover:underline"
+                           className="text-violeta hover:underline"
                         >
                            {' '}
                            Términos y Condiciones{' '}
@@ -136,7 +136,7 @@ const EmpresaForm = () => {
                         y las
                         <Link
                            href="/privacidad"
-                           className="text-azul-Main hover:underline"
+                           className="text-violeta hover:underline"
                         >
                            {' '}
                            Políticas de Privacidad{' '}
@@ -145,7 +145,7 @@ const EmpresaForm = () => {
 
                      <button
                         type="submit"
-                        className="text-white text-sm bg-azul-Main rounded-full w-[70%] py-2 mt-5"
+                        className="text-white text-sm bg-violeta rounded-full w-[70%] py-2 mt-5"
                      >
                         ENVIAR
                      </button>

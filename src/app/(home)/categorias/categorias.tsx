@@ -11,7 +11,7 @@ const Categorias = () => {
 
    return (
       <>
-         <div className="w-full bg-azul-Main flex justify-center items-center h-[10rem]">
+         <div className="w-full bg-violeta flex justify-center items-center h-[10rem]">
             <h1 className="text-white text-3xl font-(family-name:--font-open-sans) font-bold">
                Categorias
             </h1>

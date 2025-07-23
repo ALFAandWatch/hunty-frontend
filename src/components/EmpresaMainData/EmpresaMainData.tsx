@@ -16,13 +16,13 @@ const EmpresaMainData = ({ empresa }: Props) => {
                   alt={nombre}
                   width={100}
                   height={100}
-                  className="aspect-square border-3 border-azul-Main rounded-md"
+                  className="aspect-square border-3 border-violeta rounded-md"
                />
             </div>
             <div className="flex justify-center items-center">
                <h2 className="text-black font-bold text-2xl">{nombre}</h2>
             </div>
-            <div className="flex flex-col justify-center border-l-2 border-azul-Main ps-7">
+            <div className="flex flex-col justify-center border-l-2 border-violeta ps-7">
                <div>
                   <Image
                      src="/icons/location_gray.svg"
@@ -44,7 +44,7 @@ const EmpresaMainData = ({ empresa }: Props) => {
                   <p className="text-gray-400 inline">{sitioWeb}</p>
                </div>
             </div>
-            <div className="flex items-center gap-2 border-l-2 border-azul-Main ps-7">
+            <div className="flex items-center gap-2 border-l-2 border-violeta ps-7">
                <a
                   href="#"
                   rel="noopener noreferrer"
@@ -60,7 +60,7 @@ const EmpresaMainData = ({ empresa }: Props) => {
                   />
                   Whatsapp
                </a>
-               <a href="#" className="bg-azul-Main rounded-full p-1 px-2">
+               <a href="#" className="bg-violeta rounded-full p-1 px-2">
                   <Image
                      src="/icons/phone.svg"
                      alt="Llamar"

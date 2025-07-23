@@ -16,7 +16,7 @@ const AcercaDe = ({ empresa }: Props) => {
                   Acerca de {nombre}
                </h2>
                {abiertoAhora && (
-                  <div className="bg-azul-Main rounded-full text-white p-1 px-3 mt-1">
+                  <div className="bg-violeta rounded-full text-white p-1 px-3 mt-1">
                      <Image
                         src="/icons/clock.svg"
                         alt="Abierto"

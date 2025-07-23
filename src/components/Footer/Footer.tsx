@@ -5,7 +5,7 @@ const Footer = () => {
    return (
       <>
          <footer className="w-screen flex flex-col">
-            <div className="bg-azul-Main flex flex-col justify-center items-center p-15">
+            <div className="bg-violeta flex flex-col justify-center items-center p-15">
                <h1 className="font-black text-5xl">HUNTY</h1>
                <h2 className="text-md text-yellow-500 me-2 mb-5 -mt-3">
                   Cazador de Negocios
@@ -17,7 +17,7 @@ const Footer = () => {
                   cualquier lugar y dispositivo.
                </p>
             </div>
-            <div className="bg-amarillo-Main flex flex-col text-azul-Main p-3 gap-4">
+            <div className="bg-amarillo flex flex-col text-violeta p-3 gap-4">
                <div className="flex justify-center gap-10 text-sm">
                   <Link href="">Nosotros</Link>
                   <Link href="">Preguntas Frecuentes</Link>
@@ -56,7 +56,7 @@ const Footer = () => {
                      alt="Youtube"
                      width={25}
                      height={25}
-                     className="rounded-full p-1 bg-azul-Main"
+                     className="rounded-full p-1 bg-violeta"
                   />
                   <Image
                      src="/icons/tiktokLogo.png"

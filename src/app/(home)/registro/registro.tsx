@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Registro = () => {
    return (
       <>
-         <div className="w-screen h-screen bg-azul-Main flex flex-col items-center pt-15">
+         <div className="w-screen h-screen bg-violeta flex flex-col items-center pt-15">
             <Image
                src="/logo.png"
                alt="Hunty.uy"
@@ -22,7 +22,7 @@ const Registro = () => {
                      height={110}
                      className="mb-4"
                   />
-                  <h2 className="text-azul-Main text-xl font-semibold text-center">
+                  <h2 className="text-violeta text-xl font-semibold text-center">
                      Para crear tu cuenta te pediremos algunos datos
                   </h2>
                   <p className="text-gray-500 font-semibold text-sm font-(family-name:--font-open-sans)">
@@ -32,13 +32,13 @@ const Registro = () => {
                <div className="flex flex-col gap-3">
                   <Link
                      href="/registro/cuentaPersonal"
-                     className="text-white bg-azul-Main text-sm text-center p-2 px-7 rounded-full font-bold"
+                     className="text-white bg-violeta text-sm text-center p-2 px-7 rounded-full font-bold"
                   >
                      Crear Cuenta Personal
                   </Link>
                   <Link
                      href=""
-                     className="text-azul-Main bg-azul-Main/40 text-sm text-center bg-op p-2 px-7 rounded-full font-bold"
+                     className="text-violeta bg-violeta/40 text-sm text-center bg-op p-2 px-7 rounded-full font-bold"
                   >
                      Crear Cuenta Empresa
                   </Link>

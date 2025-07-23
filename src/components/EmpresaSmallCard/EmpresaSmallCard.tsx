@@ -14,7 +14,7 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
          <div className="w-full rounded-xl overflow-hidden flex flex-col bg-white shadow-md min-h-[18rem]">
             <div className="h-[10rem] w-full bg-[url('/empresa.jpg')] bg-cover relative">
                {esPremium && (
-                  <h2 className="bg-white rounded-full text-azul-Main w-fit absolute top-2 left-2">
+                  <h2 className="bg-white rounded-full text-violeta w-fit absolute top-2 left-2">
                      <Image
                         src="/icons/premium.svg"
                         alt="Premium"
@@ -30,7 +30,7 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                   alt="Logo"
                   width={60}
                   height={60}
-                  className="rounded-full z-10 aspect-square absolute left-0 bottom-0 -mb-9 ms-3 border-2 border-azul-Main"
+                  className="rounded-full z-10 aspect-square absolute left-0 bottom-0 -mb-9 ms-3 border-2 border-violeta"
                ></Image>
             </div>
             <div className="flex justify-end gap-3 mt-2 px-2">
@@ -38,7 +38,7 @@ const EmpresaSmallCard = ({ empresa }: Props) => {
                   href=""
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="bg-azul-Main text-white text-xs rounded-full p-1 px-2"
+                  className="bg-violeta text-white text-xs rounded-full p-1 px-2"
                >
                   <Image
                      src="/icons/phone.svg"
