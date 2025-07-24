@@ -1,6 +1,6 @@
 'use client';
-import NuevaEmpresaForm from '@/components/NuevaEmpresaPerfil/NuevaEmpresaForm';
-import NuevaEmpresaPerfil from '@/components/NuevaEmpresaPerfil/NuevaEmpresaForm';
+import NuevaEmpresaForm from '@/components/NuevaEmpresaForm/NuevaEmpresaForm';
+import NuevaEmpresaPerfil from '@/components/NuevaEmpresaForm/NuevaEmpresaForm';
 import Image from 'next/image';
 import { useState } from 'react';
 

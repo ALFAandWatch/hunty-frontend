@@ -1,5 +1,6 @@
 'use client';
 
+import { PerfilEspecial } from '@/enums/PerfilEspecial';
 import { Field, FieldProps, Form, Formik } from 'formik';
 import { useState } from 'react';
 
@@ -10,14 +11,16 @@ const NuevaEmpresaForm = () => {
       nombreFantasia: '',
       plan: '',
       planCustomValue: '',
+      perfilEspecial: PerfilEspecial,
       slugUrl: '',
-      usuario: '',
-      password: '',
-      nombre: '',
       apellido: '',
       cedula: '',
       razonSocial: '',
       rut: '',
+      // ...
+      nombre: '',
+      email: '',
+      password: '',
    };
 
    const handleSubmit = (values: any) => {
@@ -168,7 +171,7 @@ const NuevaEmpresaForm = () => {
                      <label htmlFor="perfilEspecial" className="text-sm">
                         A Especial
                      </label>
-                     <Field name="plan">
+                     <Field name="perfilEspecial">
                         {({ field, form }: FieldProps) => {
                            const perfiles = [
                               { label: 'Productos', value: 'PRODUCTOS' },
@@ -222,6 +225,7 @@ const NuevaEmpresaForm = () => {
                         }}
                      </Field>
                   </div>
+                  {/********************** SLUGURL ****************************/}
                   <div className="flex flex-col gap-4">
                      <label htmlFor="slugUrl">
                         Slug URL - sin espacios ni caracteres especiales
@@ -234,39 +238,7 @@ const NuevaEmpresaForm = () => {
                         className="commonField"
                      />
                   </div>
-                  <div className="flex flex-col gap-4">
-                     <label htmlFor="usuario">Usuario</label>
 
-                     <Field
-                        type="text"
-                        name="usuario"
-                        id="usuario"
-                        placeholder="usuario"
-                        className="commonField"
-                     />
-                  </div>
-                  <div className="flex flex-col gap-4">
-                     <label htmlFor="password">Contraseña</label>
-
-                     <Field
-                        type="text"
-                        name="password"
-                        id="password"
-                        placeholder="Contraseña"
-                        className="commonField"
-                     />
-                  </div>
-                  <div className="flex flex-col gap-4">
-                     <label htmlFor="nombre">Nombre</label>
-
-                     <Field
-                        type="text"
-                        name="nombre"
-                        id="nombre"
-                        placeholder="Nombre"
-                        className="commonField"
-                     />
-                  </div>
                   <div className="flex flex-col gap-4">
                      <label htmlFor="apellido">Apellido</label>
 
@@ -311,6 +283,40 @@ const NuevaEmpresaForm = () => {
                         className="commonField"
                      />
                   </div>
+                  {/********************** SECCION USUARIO ****************************/}
+                  <div className="p-4 rounded-sm border border-verde bg-verde/10 flex flex-col gap-4">
+                     <div className="flex flex-col gap-4">
+                        <label htmlFor="nombre">Nombre</label>
+                        <Field
+                           type="text"
+                           name="nombre"
+                           id="nombre"
+                           placeholder="Nombre"
+                           className="commonField"
+                        />
+                     </div>
+                     <div className="flex flex-col gap-4">
+                        <label htmlFor="email">Email</label>
+                        <Field
+                           type="email"
+                           name="email"
+                           id="email"
+                           placeholder="Email"
+                           className="commonField"
+                        />
+                     </div>
+                     <div className="flex flex-col gap-4">
+                        <label htmlFor="password">Contraseña</label>
+                        <Field
+                           type="text"
+                           name="password"
+                           id="password"
+                           placeholder="Contraseña"
+                           className="commonField"
+                        />
+                     </div>
+                  </div>
+                  {/********************** BOTOTNES SUBMIT Y CANCELAR ****************************/}
                   <div className="flex flex-col gap-6 w-70 my-4">
                      <button
                         type="submit"
