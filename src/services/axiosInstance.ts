@@ -27,6 +27,8 @@ axiosInstance.interceptors.response.use(
       const status = error.response?.status;
 
       switch (status) {
+         case 400:
+            console.warn('Estructura incorrecta');
          case 401:
             console.warn('Token inválido o expirado');
             break;

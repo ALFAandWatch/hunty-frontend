@@ -17,13 +17,6 @@ export const validateRegister = (values) => {
       errors.nombre = '* El nombre es obligatorio.';
    }
 
-   // Celular (mínimo 9 caracteres numéricos)
-   if (!values.celular) {
-      errors.celular = '* El celular es obligatorio.';
-   } else if (!/^\d{9,}$/.test(values.celular.toString().replace(/\D/g, ''))) {
-      errors.celular = '* El celular debe tener al menos 9 dígitos.';
-   }
-
    // Contraseña
    if (!values.password) {
       errors.password = '* La contraseña es obligatoria.';

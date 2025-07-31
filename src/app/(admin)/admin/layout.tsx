@@ -35,7 +35,7 @@ export default async function RootLayout({
          >
             <AdminNavbar />
             <div className="flex w-screen">
-               <aside className="bg-white w-60 shadow-md/50 z-1">
+               <aside className="bg-white w-60 2xl:w-90 shadow-md/50 z-1">
                   <AdminASide />
                </aside>
                <main className="bg-gray-100 w-full p-4 px-8">{children}</main>

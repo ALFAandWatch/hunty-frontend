@@ -64,11 +64,11 @@ const AdminASide = () => {
    ];
 
    return (
-      <ul className="font-(family-name:--font-poppins) text-black h-screen w-60">
+      <ul className="font-(family-name:--font-poppins) text-black h-screen w-full">
          {botonesAside.map((opcion, index) => (
             <li
                key={index}
-               className="border-b border-gray-400 p-4 hover:bg-gray-100 text-sm font-medium hover:cursor-pointer"
+               className="border-b border-gray-400 p-4 hover:bg-gray-100 text-sm 2xl:text-xl font-medium hover:cursor-pointer"
             >
                <Link
                   href={`${base_url}${opcion.url}`}

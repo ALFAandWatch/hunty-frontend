@@ -1,3 +1,4 @@
+import ListaEmpresasAdmin from '@/components/ListaEmpresasAdmin/ListaEmpresasAdmin';
 import Image from 'next/image';
 
 const Empresas = () => {
@@ -15,9 +16,7 @@ const Empresas = () => {
             </div>
             <h1 className="text-black text-sm">Empresas</h1>
          </div>
-         <h2>Buscador</h2>
-         <label htmlFor="nombreEmpresa">Buscar por Nombre de Empresa:</label>
-         <input type="text" name="nombreEmpresa" id="nombreEmpresa" />
+         <ListaEmpresasAdmin />
       </div>
    );
 };

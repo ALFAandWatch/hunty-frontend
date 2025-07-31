@@ -57,3 +57,18 @@ input[type='number'] {
    -moz-appearance: textfield;
    appearance: none;
 }
+
+/* MEDIA QUERY */
+@media screen and (min-width: 2000px) {
+   .contentWrapper {
+      width: 70%;
+      margin-top: 3.5rem;
+   }
+   .commonField {
+      padding: 12px;
+      background-color: white;
+      font-size: 20px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+   }
+}

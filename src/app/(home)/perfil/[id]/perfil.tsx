@@ -1,6 +1,6 @@
 'use client';
 
-import { IEmpresaPerfil } from '@/interfaces/IEmpresaPerfil';
+import { IEmpresaPerfil } from '@/interfaces/IEmpresa';
 import axiosInstance from '@/services/axiosInstance';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';

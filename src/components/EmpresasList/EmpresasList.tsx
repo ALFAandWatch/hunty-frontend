@@ -3,7 +3,7 @@
 import axiosInstance from '@/services/axiosInstance';
 import { useEffect, useState } from 'react';
 import { useFilterContext } from '@/context/FilterContext';
-import { IEmpresaPerfil } from '@/interfaces/IEmpresaPerfil';
+import { IEmpresaPerfil } from '@/interfaces/IEmpresa';
 import EmpresaSmallCard from '../EmpresaSmallCard/EmpresaSmallCard';
 
 const EmpresasList = () => {

@@ -1,4 +1,4 @@
-import { IEmpresaPerfil } from '@/interfaces/IEmpresaPerfil';
+import { IEmpresaPerfil } from '@/interfaces/IEmpresa';
 import Image from 'next/image';
 import Link from 'next/link';
 
