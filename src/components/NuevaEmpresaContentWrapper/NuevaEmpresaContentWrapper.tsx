@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import NuevaEmpresaForm from '../NuevaEmpresaForm/NuevaEmpresaForm';
 import NuevaEmpresaInformacionForm from '../NuevaEmpresaInformacionForm/NuevaEmpresaInformacionForm';
-import NuevaEmpresaFotosForm from '../NuevaEmpresaFotosForm/NuevaEMpresaFotosForm';
+import NuevaEmpresaFotosForm from '../NuevaEmpresaFotosForm/NuevaEmpresaFotosForm';
 import { useSearchParams } from 'next/navigation';
 import fetchEmpresabyId from '@/services/fetchEmpresaById';
 import { IEmpresa } from '@/interfaces/IEmpresa';
@@ -58,7 +58,7 @@ const NuevaEmpresaContentWrapper = () => {
       informacion: (
          <NuevaEmpresaInformacionForm empresaParaEditar={empresaParaEditar} />
       ),
-      fotos: <NuevaEmpresaFotosForm />,
+      fotos: <NuevaEmpresaFotosForm empresaParaEditar={empresaParaEditar} />,
       video: <div>Video</div>,
       productos: <div>Productos</div>,
       propiedades: <div>Propiedades</div>,

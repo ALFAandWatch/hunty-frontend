@@ -86,7 +86,7 @@ const ListaEmpresasAdmin = () => {
                               }
                               alt={empresa.nombreFantasia}
                               fill
-                              sizes="100vw"
+                              sizes="10vw"
                               className="w-10 h-10 rounded-full"
                            />
                         </div>

@@ -10,7 +10,7 @@ const NuevaEmpresa = () => {
                   src="/icons/plus-circle-regular.svg"
                   alt="Empresas"
                   fill
-                  sizes="100vw"
+                  sizes="10vw"
                   className="grayscale-100"
                />
             </div>

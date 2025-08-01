@@ -1,6 +1,10 @@
 import { IEmpresa } from '@/interfaces/IEmpresa';
 import { Field, Form, Formik, FormikHelpers, useFormikContext } from 'formik';
 import { useState } from 'react';
+import { empresaDefault } from '@/utils/EmpresaDefault';
+import { useRouter } from 'next/navigation';
+import editEmpresa from '@/services/editEmpresa';
+import Swal from 'sweetalert2';
 
 type FranjaHoraria = {
    inicio: string | null;
@@ -31,7 +35,23 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
       { nombre: 'domingo', slug: 'domingo' },
    ];
 
-   const handleSubmit = () => {};
+   const router = useRouter();
+
+   const handleSubmit = async (id: number, values: Partial<IEmpresa>) => {
+      try {
+         const empresaEditada = await editEmpresa(id, values);
+         if (empresaEditada) {
+            Swal.fire({
+               title: 'Cambios guardados con éxito.',
+               icon: 'success',
+            });
+         }
+         return;
+      } catch (error) {
+         console.log('No se pudo editar la empresa', error);
+         return;
+      }
+   };
 
    const handleClick = () => {
       setMostrarModal(true);
@@ -44,36 +64,22 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
    return (
       <div className="font-(family-name:--font-poppins) mt-8 p-6 px-10">
          <Formik
-            initialValues={{
-               subCategoria: '',
-               subcategoiraOpcion: [],
-               departamento: '',
-               ciudad: '',
-               direccion: '',
-               descripcion: '',
-               telefono: '',
-               whatsapp: '',
-               web: '',
-               horarioAtencion: dias.reduce((acc, dia) => {
-                  acc[dia.slug] = {
-                     manana: { inicio: '', fin: '' },
-                     tarde: { inicio: '', fin: '' },
-                  };
-                  return acc;
-               }, {} as Horarios),
-               mediosPago: '',
-               linkInstagram: '',
-               linkFacebook: '',
-               linkTiktok: '',
-               linkYoutube: '',
-               linkX: '',
+            enableReinitialize
+            initialValues={empresaParaEditar ?? empresaDefault}
+            onSubmit={(values) => {
+               if (!empresaParaEditar?.id) return;
+               const { id } = empresaParaEditar;
+               const payload = {
+                  ...empresaParaEditar,
+                  ...values,
+               };
+               handleSubmit(id, payload);
             }}
-            onSubmit={handleSubmit}
          >
             {({ values, setFieldValue }) => (
                <Form className="flex flex-col gap-8 relative">
                   <h2 className="text-md 2xl:text-2xl font-semibold">
-                     La Pasiva
+                     {empresaParaEditar?.nombreFantasia}
                   </h2>
                   {/********************* SUB CATEGORIA *************************/}
                   <div className="flex flex-col gap-4 w-[50%]">
@@ -210,13 +216,7 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                      <label htmlFor="web" className="text-sm 2xl:text-xl">
                         Web
                      </label>
-                     <Field
-                        as="textarea"
-                        rows="4"
-                        className="commonField"
-                        name="web"
-                        id="web"
-                     />
+                     <Field className="commonField" name="web" id="web" />
                   </div>
                   {/********************* HORARIOS DE ATENCION *************************/}
                   <div className="flex gap-4 me-20">
@@ -224,6 +224,7 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                         <button
                            key={i}
                            onClick={handleClick}
+                           type="button"
                            className="grow-1 basis-0 hover:cursor-pointer"
                         >
                            <div className="bg-white shadow-md rounded-md aspect-square  p-2 flex flex-col justify-around">
@@ -233,23 +234,23 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                               <div className="flex flex-col">
                                  <p>
                                     {
-                                       values.horarioAtencion[dia.slug]?.manana
+                                       values.horarioAtencion![dia.slug]?.manana
                                           .inicio
                                     }
                                     -
                                     {
-                                       values.horarioAtencion[dia.slug]?.manana
+                                       values.horarioAtencion![dia.slug]?.manana
                                           .fin
                                     }
                                  </p>
                                  <p>
                                     {
-                                       values.horarioAtencion[dia.slug]?.tarde
+                                       values.horarioAtencion![dia.slug]?.tarde
                                           .inicio
                                     }
                                     -
                                     {
-                                       values.horarioAtencion[dia.slug]?.tarde
+                                       values.horarioAtencion![dia.slug]?.tarde
                                           .fin
                                     }
                                  </p>
@@ -505,6 +506,7 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                      </button>
                      <button
                         type="button"
+                        onClick={() => router.push('/admin/empresas')}
                         className="bg-cancel text-white text-sm 2xl:text-lg p-2 rounded-full hover:cursor-pointer hover:brightness-115"
                      >
                         CANCELAR

@@ -8,5 +8,5 @@ export interface IUsuario {
    celular: number;
    role: UserRole;
    createdAt: Date;
-   UpdatedAt: Date;
+   updatedAt: Date;
 }

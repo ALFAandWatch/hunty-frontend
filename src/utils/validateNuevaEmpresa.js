@@ -7,7 +7,7 @@ function validateNuevaEmpresa(datos) {
       errores.nombreFantasia = 'Este campo es obligatorio';
    }
 
-   if (!datos.plan || datos.plan.trim() === '') {
+   if (!datos.plan) {
       errores.plan = 'Selecciona un plan';
    }
 

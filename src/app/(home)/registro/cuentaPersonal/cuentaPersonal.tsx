@@ -32,7 +32,7 @@ const CuentaPersonal = () => {
                      src="/crear_cuenta.png"
                      alt="Crear Cuenta"
                      fill
-                     sizes="100vw"
+                     sizes="10vw"
                      className="mb-4"
                   />
                </div>

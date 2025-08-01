@@ -10,7 +10,7 @@ const Empresas = () => {
                   src="/icons/store-solid.svg"
                   alt="Empresas"
                   fill
-                  sizes="100vw"
+                  sizes="10vw"
                   className="grayscale-100"
                />
             </div>

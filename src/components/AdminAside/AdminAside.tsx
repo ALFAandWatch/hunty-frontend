@@ -81,7 +81,7 @@ const AdminASide = () => {
                            src={opcion.imagen}
                            alt="Estadísticas"
                            fill
-                           sizes="100vw"
+                           sizes="10vw"
                         />
                      </div>
                      <h2
