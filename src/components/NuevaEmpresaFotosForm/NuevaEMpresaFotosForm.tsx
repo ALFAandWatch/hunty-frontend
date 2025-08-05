@@ -21,12 +21,18 @@ const NuevaEmpresaFotosForm = ({ empresaParaEditar }: Props) => {
       album: empresa.album ?? [],
    });
 
+   if (!empresaParaEditar) return null;
+
+   const { nombreFantasia } = empresaParaEditar;
+
    const handleSubmit = () => {
       console.log('Formulario enviado');
    };
    return (
       <div className="font-(family-name:--font-poppins) mt-8 p-6 px-10">
-         <h2 className="text-md 2xl:text-2xl font-semibold">La Pasiva</h2>
+         <h2 className="text-md 2xl:text-2xl font-semibold">
+            {nombreFantasia}
+         </h2>
          <Formik
             initialValues={empresaToFormValues(
                empresaParaEditar ?? empresaDefault

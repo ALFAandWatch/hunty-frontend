@@ -39,8 +39,10 @@ const NuevaEmpresaContentWrapper = () => {
             }
          };
          buscarEmpresaPorId();
+      } else {
+         setEmpresaParaEditar(null);
       }
-   }, []);
+   }, [empresaId]);
 
    const nuevaEmpresaNav: { nombre: string; slug: SeccionEmpresa }[] = [
       { nombre: 'Perfil', slug: 'perfil' },

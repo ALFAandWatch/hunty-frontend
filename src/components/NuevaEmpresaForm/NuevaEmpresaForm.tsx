@@ -2,12 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 import { ErrorMessage, Field, FieldProps, Form, Formik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import validateNuevaEmpresa from '../../utils/validateNuevaEmpresa';
 import Swal from 'sweetalert2';
 import registerEmpresaOnlyService from '@/services/registerEmpresaOnlyService';
 import empresaOnlyRequestType from '@/types/EmpresaOnlyRequestType';
 import { IEmpresa } from '@/interfaces/IEmpresa';
+import editEmpresa from '@/services/editEmpresa';
+import registerEmpresaWithUserService from '@/services/registerEmpresaWithUserService';
 
 type Props = {
    empresaParaEditar: IEmpresa | null;
@@ -16,6 +18,36 @@ type Props = {
 const NuevaEmpresaForm = ({ empresaParaEditar }: Props) => {
    const [tipoDePlan, setTipoDePlan] = useState('GRATIS');
    const modoEdicion = empresaParaEditar !== null;
+
+   useEffect(() => {
+      if (modoEdicion && empresaParaEditar) {
+         console.log('Empresa para editar:', empresaParaEditar);
+      }
+   }, [empresaParaEditar]);
+
+   const empresaDefaults = {
+      subCategoria: '',
+      subCategoriaOpcion: [],
+      departamento: '',
+      ciudad: '',
+      direccion: '',
+      descripcion: '',
+      telefono: '',
+      whatsapp: '',
+      web: '',
+      horarioAtencion: {},
+      mediosPago: [],
+      linkInstagram: '',
+      linkFacebook: '',
+      linkTiktok: '',
+      linkYoutube: '',
+      linkX: '',
+      logo: '',
+      banner: '',
+      album: [],
+      abiertoAhora: false,
+      puntuacion: 0,
+   };
 
    const formValues = modoEdicion
       ? {
@@ -29,7 +61,7 @@ const NuevaEmpresaForm = ({ empresaParaEditar }: Props) => {
            nombreFantasia: '',
            plan: '0',
            planCustomValue: '',
-           perfilEspecial: '',
+           perfilEspecial: 'none',
            slugUrl: '',
            apellido: '',
            cedula: '',
@@ -43,76 +75,158 @@ const NuevaEmpresaForm = ({ empresaParaEditar }: Props) => {
 
    const router = useRouter();
 
-   const handleSubmit = (
+   const crearEmpresaConUsuario = async (values: any) => {
+      const result = await Swal.fire({
+         title: '¿Crear empresa?',
+         text: 'Se va a crear una empresa en la base de datos con su correspondiente ususario!',
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Crear empresa con ususario',
+      });
+
+      const {
+         nombreFantasia,
+         plan,
+         planCustomValue,
+         perfilEspecial,
+         slugUrl,
+         cedula,
+         razonSocial,
+         rut,
+         nombre,
+         apellido,
+         email,
+         password,
+      } = values;
+
+      const precioFinal =
+         values.plan === 'PERSONALIZADO'
+            ? Number(planCustomValue)
+            : Number(plan);
+
+      const payload = {
+         ...empresaDefaults,
+         nombreFantasia,
+         slugUrl,
+         plan: precioFinal,
+         perfilEspecial: perfilEspecial || 'none',
+         cedula: cedula || '',
+         razonSocial: razonSocial || '',
+         rut: rut || '',
+         nombre,
+         apellido,
+         email,
+         password,
+      };
+
+      console.log('Objeto que se envia al back: ', payload);
+
+      if (result.isConfirmed) {
+         await registerEmpresaWithUserService(payload);
+         await Swal.fire({
+            title: 'Empresa creada exitosamente.',
+            icon: 'success',
+         });
+      }
+   };
+
+   const crearEmpresaSinUsuario = async (values: any) => {
+      const result = await Swal.fire({
+         title: '¿Crear empresa?',
+         text: 'Se va a crear una empresa únicamente, sin ususario asociado.',
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Crear solo empresa',
+      });
+
+      if (!result.isConfirmed) return;
+
+      const {
+         nombreFantasia,
+         plan,
+         planCustomValue,
+         perfilEspecial,
+         slugUrl,
+         cedula,
+         razonSocial,
+         rut,
+         nombre,
+         apellido,
+         email,
+         password,
+      } = values;
+
+      const precioFinal =
+         values.plan === 'PERSONALIZADO'
+            ? Number(planCustomValue)
+            : Number(plan);
+
+      const payload = {
+         ...empresaDefaults,
+         nombreFantasia,
+         slugUrl,
+         plan: precioFinal,
+         perfilEspecial: perfilEspecial || 'none',
+         cedula: cedula || '',
+         razonSocial: razonSocial || '',
+         rut: rut || '',
+         nombre: nombre || '',
+         apellido: apellido || '',
+         email: email || '',
+         password: password || '',
+      };
+
+      try {
+         await registerEmpresaOnlyService(payload as empresaOnlyRequestType);
+         await Swal.fire({
+            title: 'Empresa creada exitosamente.',
+            icon: 'success',
+         });
+         router.push('/admin/empresas');
+      } catch (error) {
+         console.log(error);
+      }
+   };
+
+   const editarEmpresa = async (id: number, values: any) => {
+      try {
+         const empresaEditada = await editEmpresa(id, values);
+         if (empresaEditada) {
+            await Swal.fire({
+               title: 'Cambios guardados con éxito.',
+               icon: 'success',
+            });
+         }
+      } catch (error) {
+         console.log('No se pudo editar la empresa', error);
+      }
+   };
+
+   const handleSubmit = async (
       values: any,
       { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
    ) => {
       try {
-         const { nombre, email, password } = values;
-
-         if (nombre && email && password) {
-            Swal.fire({
-               title: '¿Crear empresa?',
-               text: 'Se va a crear una empresa en la base de datos con su correspondiente ususario!',
-               icon: 'warning',
-               showCancelButton: true,
-               confirmButtonColor: '#3085d6',
-               cancelButtonColor: '#d33',
-               confirmButtonText: 'Crear empresa con ususario',
-            }).then((result) => {
-               if (result.isConfirmed) {
-                  // await registerEmpresaWithUsuarioService(values);
-               }
-            });
+         if (modoEdicion && empresaParaEditar.id) {
+            await editarEmpresa(empresaParaEditar.id, values);
          } else {
-            Swal.fire({
-               title: '¿Crear empresa?',
-               text: 'Se va a crear una empresa únicamente, sin ususario asociado.',
-               icon: 'warning',
-               showCancelButton: true,
-               confirmButtonColor: '#3085d6',
-               cancelButtonColor: '#d33',
-               confirmButtonText: 'Crear solo empresa',
-            }).then((result) => {
-               if (result.isConfirmed) {
-                  const precioFinal =
-                     values.plan === 'PERSONALIZADO'
-                        ? Number(values.planCustomValue)
-                        : Number(values.plan);
+            const { email, password } = values;
 
-                  const payload = {
-                     ...values,
-                     plan: precioFinal,
-                  };
-
-                  const sendEmpresaOnlyRequest = async (
-                     payload: empresaOnlyRequestType
-                  ) => {
-                     try {
-                        await registerEmpresaOnlyService(payload);
-                        Swal.fire({
-                           title: 'Empresa creada exitosamente.',
-                           icon: 'success',
-                        }).then((result) => {
-                           if (result.isConfirmed) {
-                              router.push('/admin/empresas');
-                           }
-                        });
-                     } catch (error) {
-                        console.log(error);
-                     }
-                  };
-                  sendEmpresaOnlyRequest(payload);
-               }
-            });
+            if (email && password) {
+               await crearEmpresaConUsuario(values);
+            } else {
+               await crearEmpresaSinUsuario(values);
+            }
          }
       } catch (error) {
-         console.error('Error al registrar:', error);
+         console.error('Error en el formulario:', error);
       } finally {
          setSubmitting(false);
       }
-
-      console.log(values);
    };
 
    return (
@@ -120,7 +234,9 @@ const NuevaEmpresaForm = ({ empresaParaEditar }: Props) => {
          <Formik
             initialValues={formValues}
             enableReinitialize
-            onSubmit={handleSubmit}
+            onSubmit={(values, FormikHelpers) =>
+               handleSubmit(values, FormikHelpers)
+            }
             validate={validateNuevaEmpresa}
          >
             {({ values, setFieldValue, setSubmitting }) => (
@@ -309,7 +425,7 @@ const NuevaEmpresaForm = ({ empresaParaEditar }: Props) => {
                                                 form.setFieldValue(
                                                    'perfilEspecial',
                                                    field.value === perfil.value
-                                                      ? ''
+                                                      ? 'none'
                                                       : perfil.value
                                                 );
                                              }}
@@ -410,9 +526,10 @@ const NuevaEmpresaForm = ({ empresaParaEditar }: Props) => {
                   {/********************** SECCION USUARIO ****************************/}
                   <div className="p-4 rounded-sm border border-verde bg-verde/10 flex flex-col gap-4">
                      <p className="text-white text-sm italic bg-verde p-2 rounded-md">
-                        En caso de querer crear un ususario relacionado a la
-                        empresa agrega los datos aquí. Si dejas estos campos
-                        vacíos se creará una emrpesa sin usuario asociado.
+                        En caso de querer crear un usuario relacionado a la
+                        empresa agrega los datos aquí. Solo son obligatorios
+                        email y contraseña. Si dejas estos campos vacíos se
+                        creará una empresa sin usuario asociado.
                      </p>
                      <div className="flex flex-col gap-4">
                         <label htmlFor="nombre">Nombre</label>

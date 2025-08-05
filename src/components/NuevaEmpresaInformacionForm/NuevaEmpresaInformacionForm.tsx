@@ -104,7 +104,7 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                      <label>
                         <Field
                            type="checkbox"
-                           name="subcategoiraOpcion"
+                           name="subCategoriaOpcion"
                            value="restaurantes"
                            className="me-2"
                         />
@@ -113,7 +113,7 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                      <label>
                         <Field
                            type="checkbox"
-                           name="subcategoiraOpcion"
+                           name="subCategoriaOpcion"
                            value="pizzeria"
                            className="me-2"
                         />
@@ -122,7 +122,7 @@ const NuevaEmpresaInformacionForm = ({ empresaParaEditar }: Props) => {
                      <label>
                         <Field
                            type="checkbox"
-                           name="subcategoiraOpcion"
+                           name="subCategoriaOpcion"
                            value="cafeteria"
                            className="me-2"
                         />
